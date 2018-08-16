@@ -1,4 +1,3 @@
-
 $(function() {
     // The taskHtml method takes in a JavaScript representation
     // of the task and produces an HTML representation using
@@ -31,14 +30,13 @@ $(function() {
             task: {
                 done: doneValue
             }
-
         }).success(function(data) {
             var liHtml = taskHtml(data);
             var $li = $("#listItem-" + data.id);
             $li.replaceWith(liHtml);
             $('.toggle').change(toggleTask);
 
-        });
+        } );
     }
 
     $.get("/tasks").success( function( data ) {
@@ -68,7 +66,7 @@ $(function() {
             var ulTodos = $('.todo-list');
             ulTodos.append(htmlString);
             $('.toggle').click(toggleTask);
-            $('new-todo').val('');
+            $('.new-todo').val('');
         });
     });
 
